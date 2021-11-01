@@ -10,7 +10,7 @@ console.log(lista);
 function getBioById(Id) {
     let i = 0;
     for (i; i < lista.length; i++) {
-        if (lista[i].id == Id) {
+        if (lista[i].id === Id) {
             return lista[i].bio;
         }
     }
@@ -20,7 +20,7 @@ function getBioById(Id) {
 function getNameById(Id) {
     let i = 0;
     for (i; i < 4; i++) {
-        if (lista[i].id == Id) {
+        if (lista[i].id === Id) {
             return lista[i].name;
         }
     }
@@ -30,10 +30,10 @@ function getNameById(Id) {
 function deleteElementById(Id) {
     let i = 0;
     for (i; i < lista.length; i++) {
-        if (lista[i].id == Id) {
+        if (lista[i].id === Id) {
             const index = lista.indexOf(lista[i]);
             lista.splice(index, 1);
-            return;
+            break;
         }
     }
 }
@@ -41,65 +41,65 @@ function deleteElementById(Id) {
 function changeNameById(Id, newName) {
     let i = 0;
     for (i; i < lista.length; i++) {
-        if (lista[i].id == Id) {
+        if (lista[i].id === Id) {
             lista[i].name = "Novo nome";
-            return;
+            break;
         }
     }
 }
 function changeBioById(Id, newName) {
     let i = 0;
     for (i; i < lista.length; i++) {
-        if (lista[i].id == Id) {
+        if (lista[i].id === Id) {
             lista[i].bio = "Nova bio";
-            return;
+            break;
         }
     }
 }
 function changeElementById(Id, change, newString) {
     let i = 0;
     for (i = 0; i < lista.length; i++) {
-        if (lista[i].id == Id) {
-            if (change == "bio")
+        if (lista[i].id === Id) {
+            if (change === "bio")
                 changeBioById(Id, newString);
-            if (change == "name")
+            if (change === "name")
                 changeNameById(Id, newString);
-            return;
+            break;
         }
     }
 }
 //e) Demonstre todas as funções com o paradigma funcional e com o imperativo
 const getBioByIdF = (Id) => {
     var _a;
-    return (_a = lista.find((value) => value.id == Id)) === null || _a === void 0 ? void 0 : _a.bio;
+    return (_a = lista.find((value) => value.id === Id)) === null || _a === void 0 ? void 0 : _a.bio;
 };
 const getNameByIdF = (Id) => {
     var _a;
-    return (_a = lista.find((value) => value.id == Id)) === null || _a === void 0 ? void 0 : _a.name;
+    return (_a = lista.find((value) => value.id === Id)) === null || _a === void 0 ? void 0 : _a.name;
 };
 const deleteElementByIdF = (Id) => {
     return lista.forEach((value) => {
-        if (value.id == Id) {
+        if (value.id === Id) {
             lista.splice(lista.indexOf(value), 1);
         }
     });
 };
 const changeNameByIdF = (Id, newName) => {
     return lista.forEach((value) => {
-        if (value.id == Id) {
+        if (value.id === Id) {
             value.name = newName;
         }
     });
 };
 const changeBioByIdF = (Id, newBio) => {
     return lista.forEach((value) => {
-        if (value.id == Id) {
+        if (value.id === Id) {
             value.bio = newBio;
         }
     });
 };
 const changeElementByIdF = (Id, change, newString) => {
-    return change == "bio" ? changeBioByIdF(Id, newString) : changeNameByIdF(Id, newString);
+    return change === "bio" ? changeBioByIdF(Id, newString) : changeNameByIdF(Id, newString);
 };
 let bio = getBioById(1);
 console.log(bio);
