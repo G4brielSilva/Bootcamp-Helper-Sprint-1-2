@@ -10,7 +10,7 @@ function getBioById(Id: number): string{
 
     let i:number = 0;
     for(i;i<lista.length;i++){
-        if(lista[i].id == Id ){
+        if(lista[i].id === Id ){
             return lista[i].bio;
         }
     }
@@ -21,7 +21,7 @@ function getBioById(Id: number): string{
 function getNameById(Id: number): string{
     let i:number = 0;
     for(i;i<4;i++){
-        if(lista[i].id == Id ){
+        if(lista[i].id === Id ){
             return lista[i].name;
         }
     }
@@ -34,10 +34,10 @@ function getNameById(Id: number): string{
  function deleteElementById(Id: number): any{
     let i:number = 0;
     for(i;i<lista.length;i++){
-        if(lista[i].id == Id ){
+        if(lista[i].id === Id ){
             const index = lista.indexOf(lista[i]);
             lista.splice(index, 1);
-            return;
+            break;
         }
     }
 }
@@ -50,9 +50,9 @@ function getNameById(Id: number): string{
 function changeNameById(Id: number, newName: string):any{
     let i:number = 0;
     for(i;i<lista.length;i++){
-        if(lista[i].id == Id ){
+        if(lista[i].id === Id ){
             lista[i].name="Novo nome";
-            return;
+            break;
         }
     }
 }
@@ -60,9 +60,9 @@ function changeNameById(Id: number, newName: string):any{
 function changeBioById(Id: number, newName: string):any{
     let i:number = 0;
     for(i;i<lista.length;i++){
-        if(lista[i].id == Id ){
+        if(lista[i].id === Id ){
             lista[i].bio="Nova bio";
-            return;
+            break;
         }
     }
 }
@@ -72,10 +72,10 @@ function changeBioById(Id: number, newName: string):any{
     let i:number = 0;
 
     for(i=0; i<lista.length; i++){
-        if(lista[i].id == Id ){
-            if(change=="bio") changeBioById(Id, newString);
-            if(change=="name") changeNameById(Id, newString);
-            return;
+        if(lista[i].id === Id ){
+            if(change==="bio") changeBioById(Id, newString);
+            if(change==="name") changeNameById(Id, newString);
+            break;
         }
     }
 }
@@ -83,16 +83,16 @@ function changeBioById(Id: number, newName: string):any{
  //e) Demonstre todas as funções com o paradigma funcional e com o imperativo
 
 const getBioByIdF = (Id: number): string => {
-    return lista.find((value) => value.id == Id)?.bio as string;
+    return lista.find((value) => value.id === Id)?.bio as string;
 }
 
 const getNameByIdF = (Id: number): string => {
-    return lista.find((value) => value.id == Id)?.name as string;
+    return lista.find((value) => value.id === Id)?.name as string;
 }
 
 const deleteElementByIdF=  (Id: number): any =>{
     return lista.forEach((value) =>{
-        if(value.id == Id){
+        if(value.id === Id){
             lista.splice(lista.indexOf(value), 1);
         }
     });
@@ -100,7 +100,7 @@ const deleteElementByIdF=  (Id: number): any =>{
 
 const changeNameByIdF = (Id: number, newName: string): any =>{
     return lista.forEach((value) =>{
-        if(value.id == Id){
+        if(value.id === Id){
             value.name=newName;
         }
     });
@@ -108,14 +108,14 @@ const changeNameByIdF = (Id: number, newName: string): any =>{
 
 const changeBioByIdF = (Id: number, newBio: string): any =>{
     return lista.forEach((value) =>{
-        if(value.id == Id){
+        if(value.id === Id){
             value.bio=newBio;
         }
     });
 }
 
 const changeElementByIdF = (Id: number, change: string, newString: string): any =>{
-    return change=="bio"?changeBioByIdF(Id, newString): changeNameByIdF(Id, newString);
+    return change==="bio"?changeBioByIdF(Id, newString): changeNameByIdF(Id, newString);
 }
 
 
