@@ -45,7 +45,6 @@ function getNameById(Id: number): string{
 
 
  //d) Crie uma função que altere a bio ou o name a partir de um id passado
-
  
 function changeNameById(Id: number, newName: string):any{
     let i:number = 0;
